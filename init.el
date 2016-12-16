@@ -13,7 +13,8 @@
 (package-initialize)
 
 (defun packages-install () 
-  (package-install 'evil))
+  (package-install 'evil)
+  (package-install 'magit))
 
 (condition-case nil 
                 (packages-install) 
@@ -21,5 +22,10 @@
                   (package-refresh-contents)
                   (packages-install)))
 
+;; packages:
+;; evil
 (require 'evil)
 (evil-mode 1)
+
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
